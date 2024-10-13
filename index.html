@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berzsenyi Dániel Kvíz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .correct {
+            color: green;
+            font-weight: bold;
+        }
+        .incorrect {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Berzsenyi Dániel Kvíz</h1>
+    <form id="quizForm">
+        <div>
+            <p>Ki volt a költő példaképe?</p>
+            <input type="radio" id="answer1" name="berzsenyi" value="a">
+            <label for="answer1">a) Horatius</label><br>
+            <input type="radio" id="answer2" name="berzsenyi" value="b">
+            <label for="answer2">b) Zeusz</label><br>
+            <input type="radio" id="answer3" name="berzsenyi" value="c">
+            <label for="answer3">c) Arisztotelész</label><br>
+            <input type="radio" id="answer4" name="berzsenyi" value="d">
+            <label for="answer4">d) Seneca</label>
+        </div>
+        <button type="submit">Beküld</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById("quizForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const answer = document.querySelector('input[name="berzsenyi"]:checked').value;
+            const resultDiv = document.getElementById("result");
+            const correctAnswer = "Horatius";
+
+            if (answer === "a") {
+                resultDiv.innerHTML = `<span class="correct">Helyes válasz! A példaképe Horatius volt.</span>`;
+            } else {
+                resultDiv.innerHTML = `<span class="incorrect">Helytelen válasz: ${answer}. A helyes válasz: <span class="correct">${correctAnswer}</span></span>`;
+            }
+        });
+    </script>
+</body>
+</html>
